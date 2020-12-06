@@ -1,16 +1,16 @@
-import socketserver
+import SocketServer
 import threading
 import time
 
 
-class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
+class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
 
     def handle(self):
         _, server_port = self.request.getsockname()
         print('Ping on {}'.format(server_port))
 
 
-class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
+class ThreadedTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
     pass
 
 
